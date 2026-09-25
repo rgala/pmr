@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,9 +15,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
+@SpringBootApplication
 public class PMR {
 
     public static void main(String... args) {
+
+        SpringApplication.run(PMR.class, args);
 
         final int threadNum = 5;
         int i;
