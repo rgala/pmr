@@ -1,5 +1,6 @@
 package pmr;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
@@ -11,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class PMR {
 
     public static void main(String... args) {
@@ -39,6 +41,7 @@ public class PMR {
 
                 try {
                     executor.execute(CommandLine.parse(String.format("whoami")));
+                    log.info("Command output: {}", output.toString());
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to execute command", e);
                 } finally {
